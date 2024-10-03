@@ -1,12 +1,19 @@
 
 import './App.css'
+import Card from './components/Card'
+import Navbar from './components/Navbar'
 
 function App() {
+  
+  
  
 
   return (
     <>
-  <h1 className='text-orange-600 text-[3rem]'>My first componnet</h1>
+      <div className='h-screen w-[100%] bg-zinc-300  '>
+        <Navbar ></Navbar>
+        <Card ></Card>
+      </div>
     </>
   )
 }
