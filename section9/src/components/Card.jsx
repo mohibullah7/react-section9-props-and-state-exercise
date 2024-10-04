@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Card() {
-
+  
   let data = [
     {
       singerName:'Harsh Bogla',
@@ -14,7 +14,7 @@ function Card() {
       singerName:'Harsh Totla',
       track: 'Check one ',
       image : 'https://images.pexels.com/photos/21568573/pexels-photo-21568573/free-photo-of-song-sparrow-in-close-up.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      fvt : true,
+      fvt : false,
 
     },
     {
@@ -32,12 +32,14 @@ function Card() {
 
     },
   ];
+  const [value,setvalue] =useState(data)
+  
 
   
   return (
     <div>
       <div className='flex justify-center items-center gap-10 '>
-        {data.map((elem,index)=>(
+        {value.map((elem,index)=>(
 
 <div className='h-[150px] rounded-md bg-white w-[250px] p-5 relative'>
 <div className='flex gap-5'>
@@ -50,15 +52,18 @@ function Card() {
   </div>
 </div>
   <a href="#">
-  <div onClick={elem.fvt } className='absolute h-12 w-40 bg-orange-600 text-white rounded-full translate-x-6 translate-y-6 flex justify-center items-center'>
-  <p>{elem.fvt ? 'Add To Favourite':"Removed"}</p>
+  <div onClick={()=>setvalue({...value,fvt:!value.fvt})} className={`absolute h-12 w-40 ${value.fvt ? 'bg-orange-600':'bg-blue-400'} text-white rounded-full translate-x-6 translate-y-6 flex justify-center items-center`}>
+  <p>{value.fvt ? 'Add To Favourite':"Removed"}</p>
 </div>
   </a>
 
 </div>
 
 
-        ))}
+
+         ) ) 
+      
+        }
       
 
       </div>
